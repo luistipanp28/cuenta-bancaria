@@ -1,10 +1,6 @@
 package com.ec.pichincha.model;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -15,12 +11,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "client")
+public class ClientEntity extends PersonEntity {
 
-public class ClientEntity extends PersonEntity{
-
-       
-   private String password;
-
-   private boolean status;
+	   private int idclient;
+	   
+	   private String password;
+	
+	   private boolean status;
     
 }

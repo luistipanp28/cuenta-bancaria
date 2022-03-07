@@ -18,8 +18,7 @@ import javax.persistence.Table;
 @MappedSuperclass
 
 public class PersonEntity  {
-
-
+	
     @Id
     private String idPerson;
 

@@ -19,5 +19,7 @@ import lombok.NoArgsConstructor;
 public class TransactionCreateResponse {
 	
 	Transaction transaction;
+	
+	String mensaje;
 
 }

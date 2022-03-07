@@ -50,6 +50,7 @@ public class TransactionController {
 			return new ResponseEntity<Map<String, Object>>(response,HttpStatus.BAD_REQUEST);
 		}
 		
+				
 		try {
 			
 			newTransaction = transactionsServices.createTransaction(transactionCreateRequest);
@@ -133,33 +134,6 @@ public class TransactionController {
 		
 		return new ResponseEntity<Map<String, Object>>(response,HttpStatus.OK);
 	
-	}
-	
-	public ResponseEntity<?> transactionForClient(@Valid @RequestBody 
-			TransactionClientCreateRequest request, BindingResult result){
-		
-		Map<String, Object> response = new HashMap<>();
-		if(result.hasErrors()) {
-			List<String> errrors = result.getFieldErrors()
-					.stream()
-					.map(err -> "El campo '" + err.getField() + "' "+err.getDefaultMessage())
-					.collect(Collectors.toList());
-			response.put("errors", errrors);
-			return new ResponseEntity<Map<String, Object>>(response,HttpStatus.BAD_REQUEST);
-		}
-		
-		//Consultar si el cliente existe
-		ClientInfoResponse clienteSearch = transactionsServices.idClient(request.getTransactionClient().getIdClient());
-		
-		if(clienteSearch == null) {
-			response.put("mensaje", "Error: el clinete, no existe ID:  "
-					.concat(request.getTransactionClient().getIdClient())
-					.concat(" No existe en la base de datos"));
-			return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
-		}
-		
-		//consultar la tabla c
-		return null;
 	}
 
 }
