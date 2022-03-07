@@ -1,6 +1,8 @@
 package com.ec.pichincha.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -14,6 +16,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "client")
 public class ClientEntity extends PersonEntity {
 
+	  @GeneratedValue(strategy = GenerationType.IDENTITY)
 	   private int idclient;
 	   
 	   private String password;
